@@ -1,24 +1,4 @@
-/**
- * Copyright 2013, 2016 IBM Corp.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- **/
-
-// The `https` setting requires the `fs` module. Uncomment the following
-// to make it available:
-//var fs = require("fs");
-
-console.log("### Specific settings loaded ###")
+console.log("@@@ Specific settings loaded @@@")
 
 module.exports = {
     // the tcp port that the Node-RED web server is listening on
@@ -66,7 +46,7 @@ module.exports = {
 
     // By default, all user data is stored in the Node-RED install directory. To
     // use a different location, the following property can be used
-    //userDir: '/home/nol/.node-red/',
+    userDir: '/node-red-storage/',
 
     // Node-RED scans the `nodes` directory in the install directory to find nodes.
     // The following property can be used to specify an additional directory to scan.
