@@ -1,4 +1,4 @@
-console.log("===@@@ Specific settings loaded @@@===")
+console.log("===>>>@@@ Specific settings loaded @@@<<<===")
 
 module.exports = {
     // the tcp port that the Node-RED web server is listening on
