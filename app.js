@@ -1,5 +1,4 @@
 "use strict";
-
 require('shelljs/global');
 
 exec(`node ./node_modules/node-red/red.js --userDir ./node-red-storage`, (code, stdout, stderr) => {
