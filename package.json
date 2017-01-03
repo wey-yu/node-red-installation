@@ -15,6 +15,7 @@
   "homepage": "https://github.com/wey-yu/node-red-installation#readme",
   "dependencies": {
     "node-red": "^0.15.2",
+    "node-red-dashboard": "^2.2.1",
     "shelljs": "^0.7.4"
   }
 }
