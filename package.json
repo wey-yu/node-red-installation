@@ -2,7 +2,6 @@
   "name": "node-red-installation",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wey-yu/node-red-installation.git"
@@ -15,7 +14,9 @@
   "homepage": "https://github.com/wey-yu/node-red-installation#readme",
   "dependencies": {
     "node-red": "^0.15.2",
-    "node-red-dashboard": "^2.2.1",
-    "shelljs": "^0.7.4"
+    "node-red-dashboard": "^2.2.1"
+  },
+  "scripts": 
+    "start": "node ./node_modules/node-red/red.js --userDir ./node-red-storage"
   }
 }
