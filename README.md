@@ -48,10 +48,10 @@ Then update `settings.js` and save it
 
   ```json
   [
-   {
+    {
       "bucket_host": "your bucket id",
       "folder": "/node-red-storage"
-   }
+    }
   ]
   ```
 - push your updates
