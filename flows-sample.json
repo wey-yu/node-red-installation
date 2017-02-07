@@ -1,0 +1,326 @@
+[
+    {
+        "id": "cce7b1bf.4e299",
+        "type": "tab",
+        "label": "Creatures: t96"
+    },
+    {
+        "id": "e9931584.984a88",
+        "type": "tab",
+        "label": "Creatures: All temperature sensors"
+    },
+    {
+        "id": "8e2003cd.bacea",
+        "type": "tab",
+        "label": "Dashboard sample"
+    },
+    {
+        "id": "1a5f016d.81901f",
+        "type": "ui_group",
+        "z": "",
+        "name": "Temperature t96",
+        "tab": "ec888963.647dd8",
+        "order": 2,
+        "disp": true,
+        "width": "10"
+    },
+    {
+        "id": "ec888963.647dd8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Creatures Simulator",
+        "icon": "dashboard",
+        "order": 0
+    },
+    {
+        "id": "fbf433d5.225bd",
+        "type": "ui_group",
+        "z": "",
+        "name": "Humidity h34",
+        "tab": "ec888963.647dd8",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "feb74fb9.2cc33",
+        "type": "debug",
+        "z": "cce7b1bf.4e299",
+        "name": "Display temperature 96",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 594.5,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a39ebdb.e1b5d4",
+        "type": "function",
+        "z": "cce7b1bf.4e299",
+        "name": "get data of t96",
+        "func": "return msg;",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 382.5,
+        "y": 93,
+        "wires": [
+            [
+                "feb74fb9.2cc33"
+            ]
+        ]
+    },
+    {
+        "id": "188dfa3b.b9b396",
+        "type": "inject",
+        "z": "cce7b1bf.4e299",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "x": 154.5,
+        "y": 348,
+        "wires": [
+            [
+                "6cffb220.d00ccc"
+            ]
+        ]
+    },
+    {
+        "id": "6cffb220.d00ccc",
+        "type": "http request",
+        "z": "cce7b1bf.4e299",
+        "name": "t96",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://creatures.cleverapps.io/sensors/temperature/t96",
+        "tls": "",
+        "x": 199.5,
+        "y": 103,
+        "wires": [
+            [
+                "a39ebdb.e1b5d4"
+            ]
+        ]
+    },
+    {
+        "id": "815f362.086bfc8",
+        "type": "http request",
+        "z": "e9931584.984a88",
+        "name": "Get temperature sensors",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://creatures.cleverapps.io/sensors/temperature",
+        "tls": "",
+        "x": 362.5,
+        "y": 119,
+        "wires": [
+            [
+                "56af9466.54ba6c"
+            ]
+        ]
+    },
+    {
+        "id": "56af9466.54ba6c",
+        "type": "function",
+        "z": "e9931584.984a88",
+        "name": "Extract t12 and t84",
+        "func": "let sensors = msg.payload;\n//node.log(JSON.stringify(sensors[0]));\n//node.log(JSON.stringify(sensors.find(sensor => sensor.id==\"t82\")));\n\nlet t12 = sensors.find(sensor => sensor.id==\"t12\")\nlet t84 = sensors.find(sensor => sensor.id==\"t84\")\n\nreturn [{payload:t12},{payload:t84}];",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 489.5,
+        "y": 290,
+        "wires": [
+            [
+                "cda1d47c.3bfb98"
+            ],
+            [
+                "a62f9e87.8b95a"
+            ]
+        ]
+    },
+    {
+        "id": "62257324.439f0c",
+        "type": "inject",
+        "z": "e9931584.984a88",
+        "name": "Repeat",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "x": 117.5,
+        "y": 53,
+        "wires": [
+            [
+                "815f362.086bfc8"
+            ]
+        ]
+    },
+    {
+        "id": "cda1d47c.3bfb98",
+        "type": "debug",
+        "z": "e9931584.984a88",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 808.5,
+        "y": 109,
+        "wires": []
+    },
+    {
+        "id": "a62f9e87.8b95a",
+        "type": "debug",
+        "z": "e9931584.984a88",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 844.5,
+        "y": 196,
+        "wires": []
+    },
+    {
+        "id": "9d845033.d4b1d",
+        "type": "inject",
+        "z": "8e2003cd.bacea",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "x": 102.5,
+        "y": 62,
+        "wires": [
+            [
+                "4b87868e.83b928",
+                "e5463773.673518"
+            ]
+        ]
+    },
+    {
+        "id": "4b87868e.83b928",
+        "type": "http request",
+        "z": "8e2003cd.bacea",
+        "name": "t96",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://creatures.cleverapps.io/sensors/temperature/t96",
+        "tls": "",
+        "x": 271,
+        "y": 54,
+        "wires": [
+            [
+                "95133215.a2fd4"
+            ]
+        ]
+    },
+    {
+        "id": "e5463773.673518",
+        "type": "http request",
+        "z": "8e2003cd.bacea",
+        "name": "h34",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://creatures.cleverapps.io/sensors/humidity/h34",
+        "tls": "",
+        "x": 216,
+        "y": 184,
+        "wires": [
+            [
+                "e099bd5f.4dd36"
+            ]
+        ]
+    },
+    {
+        "id": "95133215.a2fd4",
+        "type": "function",
+        "z": "8e2003cd.bacea",
+        "name": "",
+        "func": "return {payload:msg.payload.value};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 461.5,
+        "y": 108,
+        "wires": [
+            [
+                "f0be1243.f0ff5"
+            ]
+        ]
+    },
+    {
+        "id": "e099bd5f.4dd36",
+        "type": "function",
+        "z": "8e2003cd.bacea",
+        "name": "",
+        "func": "return {payload:msg.payload.value};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 413.5,
+        "y": 287,
+        "wires": [
+            [
+                "e3e49672.19e5a8"
+            ]
+        ]
+    },
+    {
+        "id": "f0be1243.f0ff5",
+        "type": "ui_chart",
+        "z": "8e2003cd.bacea",
+        "name": "",
+        "group": "1a5f016d.81901f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Celcius",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "ymin": "-10",
+        "ymax": "10",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "x": 573,
+        "y": 148,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e3e49672.19e5a8",
+        "type": "ui_gauge",
+        "z": "8e2003cd.bacea",
+        "name": "",
+        "group": "fbf433d5.225bd",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 572,
+        "y": 221,
+        "wires": []
+    }
+]
