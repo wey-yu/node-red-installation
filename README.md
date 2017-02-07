@@ -55,6 +55,8 @@ Then update `settings.js` and save it
   ```
 - push your updates
 - create an application on Clever Cloud from your repository
+- got to your web app and connect with `admin/your_password`
+
 
 ## More
 
