@@ -45,6 +45,7 @@ Then update `settings.js` and save it
 ### Update your repository
 
 - you have to update the `clevercloud/buckets.json` file with the informations of your FS-Bucket:
+
   ```json
   [
    {
